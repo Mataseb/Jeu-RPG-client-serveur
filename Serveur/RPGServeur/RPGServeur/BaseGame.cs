@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace RPGServeur
 {
-    class Map : PictureBox
+    class BaseGame : PictureBox
     {
         Timer t;
         Color couleur;
@@ -16,13 +16,13 @@ namespace RPGServeur
         int height = 3;
         int width = 6;
         int tileSize = 20;
-        int[,] map = new int[3,6] {
+        int[,] baseGame = new int[3, 6] {
             {1, 1, 1, 1, 1, 1 },
             {1, 0, 0, 0, 0, 1 },
             {0, 1, 1, 1, 1, 0 }
         };
 
-        public Map() : base()
+        public BaseGame() : base()
         {
             t = new Timer();
             t.Interval = 999;
@@ -31,7 +31,7 @@ namespace RPGServeur
 
             couleur = new Color();
             origin = new Point(5, 5);
-            base.Paint += Map_Paint;
+            base.Paint += BaseGame_Paint;
         }
 
         private void Tick(object sender, EventArgs e)
@@ -39,13 +39,13 @@ namespace RPGServeur
             base.Refresh();
         }
 
-        private void Map_Paint(object sender, PaintEventArgs e)
+        private void BaseGame_Paint(object sender, PaintEventArgs e)
         {
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < height; j++)
                 {
-                    switch (map[j,i])
+                    switch (baseGame[j, i])
                     {
                         case 0:
                             couleur = Color.Black;

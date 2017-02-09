@@ -61,7 +61,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(116, 103);
+            this.ClientSize = new System.Drawing.Size(898, 424);
             this.Controls.Add(this.btnActiver);
             this.Controls.Add(this.lblStatutServeur);
             this.Name = "Form1";
