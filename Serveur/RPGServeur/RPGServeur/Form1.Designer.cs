@@ -29,11 +29,55 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.lblStatutServeur = new System.Windows.Forms.Label();
+            this.btnActiver = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
+            // 
+            // lblStatutServeur
+            // 
+            this.lblStatutServeur.AutoSize = true;
+            this.lblStatutServeur.Location = new System.Drawing.Point(12, 18);
+            this.lblStatutServeur.Name = "lblStatutServeur";
+            this.lblStatutServeur.Size = new System.Drawing.Size(92, 13);
+            this.lblStatutServeur.TabIndex = 0;
+            this.lblStatutServeur.Text = "Statut : Désactivé";
+            // 
+            // btnActiver
+            // 
+            this.btnActiver.Location = new System.Drawing.Point(12, 54);
+            this.btnActiver.Name = "btnActiver";
+            this.btnActiver.Size = new System.Drawing.Size(92, 37);
+            this.btnActiver.TabIndex = 2;
+            this.btnActiver.Text = "Désactiver";
+            this.btnActiver.UseVisualStyleBackColor = true;
+            this.btnActiver.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 40;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(116, 103);
+            this.Controls.Add(this.btnActiver);
+            this.Controls.Add(this.lblStatutServeur);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblStatutServeur;
+        private System.Windows.Forms.Button btnActiver;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
