@@ -32,6 +32,8 @@
             this.lblStatutServeur = new System.Windows.Forms.Label();
             this.btnActiver = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.map1 = new RPGServeur.Map();
+            ((System.ComponentModel.ISupportInitialize)(this.map1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblStatutServeur
@@ -57,17 +59,27 @@
             // 
             this.timer1.Interval = 40;
             // 
+            // map1
+            // 
+            this.map1.Location = new System.Drawing.Point(110, 18);
+            this.map1.Name = "map1";
+            this.map1.Size = new System.Drawing.Size(481, 324);
+            this.map1.TabIndex = 3;
+            this.map1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 424);
+            this.Controls.Add(this.map1);
             this.Controls.Add(this.btnActiver);
             this.Controls.Add(this.lblStatutServeur);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.map1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,6 +90,7 @@
         private System.Windows.Forms.Label lblStatutServeur;
         private System.Windows.Forms.Button btnActiver;
         private System.Windows.Forms.Timer timer1;
+        private Map map1;
     }
 }
 

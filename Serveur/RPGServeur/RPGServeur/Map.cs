@@ -10,16 +10,29 @@ namespace RPGServeur
 {
     class Map : PictureBox
     {
+        Image img;
         Timer t;
         Color couleur;
         Point origin;
-        int height = 3;
-        int width = 6;
+        int height = 15;
+        int width = 11;
         int tileSize = 20;
-        int[,] map = new int[3,6] {
-            {1, 1, 1, 1, 1, 1 },
-            {1, 0, 0, 0, 0, 1 },
-            {0, 1, 1, 1, 1, 0 }
+        int[,] baseGame = new int[15, 11] {
+            {1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1},
+            {1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1},
+            {1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1},
+            {1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1},
+            {1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1},
+            {1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1},
+            {1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1},
+            {1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            {1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1},
+            {1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1},
+            {1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1},
+            {1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1},
+            {1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
         };
 
         public Map() : base()
@@ -31,7 +44,7 @@ namespace RPGServeur
 
             couleur = new Color();
             origin = new Point(5, 5);
-            base.Paint += Map_Paint;
+            base.Paint += BaseGame_Paint;
         }
 
         private void Tick(object sender, EventArgs e)
@@ -39,25 +52,26 @@ namespace RPGServeur
             base.Refresh();
         }
 
-        private void Map_Paint(object sender, PaintEventArgs e)
+        private void BaseGame_Paint(object sender, PaintEventArgs e)
         {
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < height; j++)
                 {
-                    switch (map[j,i])
+                    switch (baseGame[j, i])
                     {
                         case 0:
-                            couleur = Color.Black;
+                            img = Properties.Resources.Ground;
                             break;
                         case 1:
-                            couleur = Color.White;
+                            img = Properties.Resources.Gravel;
                             break;
                         default:
                             couleur = Color.Green;
                             break;
                     }
-                    e.Graphics.FillRectangle(new SolidBrush(couleur), new Rectangle(origin.X + i * tileSize, origin.Y + j * tileSize, tileSize, tileSize));
+                    //e.Graphics.FillRectangle(new SolidBrush(couleur), new Rectangle(origin.X + i * tileSize, origin.Y + j * tileSize, tileSize, tileSize));
+                    e.Graphics.DrawImage(img, new Rectangle(origin.X + i * tileSize, origin.Y + j * tileSize, tileSize, tileSize));
                 }
             }
         }

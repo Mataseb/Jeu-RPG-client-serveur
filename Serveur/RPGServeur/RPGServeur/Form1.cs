@@ -17,7 +17,7 @@ namespace RPGServeur
         //objet permettant d'écouter les demandes de connexion.
         TcpListener listener = new TcpListener(IPAddress.Parse(GetLocalIPAddress()), 1024);
         //vrai si "listener" est en écoute et faux si "listener" n'est pas en écoute.
-        bool DoListenerListen;
+        bool doListenerListen;
 
         public Form1()
         {
@@ -44,14 +44,14 @@ namespace RPGServeur
         private void Form1_Load(object sender, EventArgs e)
         {
             listener.Start();
-            DoListenerListen = true;
+            doListenerListen = true;
             lblStatutServeur.Text = "Statut: Activé";
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             listener.Stop();
-            DoListenerListen = false;
+            doListenerListen = false;
         }
 
         /// <summary>
@@ -61,17 +61,17 @@ namespace RPGServeur
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (DoListenerListen)
+            if (doListenerListen)
             {
                 listener.Stop();
-                DoListenerListen = false;
+                doListenerListen = false;
                 lblStatutServeur.Text = "Statut: Désactivé";
                 btnActiver.Text = "Activer";
             }
             else
             {
                 listener.Start();
-                DoListenerListen = true;
+                doListenerListen = true;
                 lblStatutServeur.Text = "Statut: Activé";
                 btnActiver.Text = "Désactiver";
             }
