@@ -88,6 +88,10 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="textures\Gravel.jpg" />
+    <None Include="Resources\tex04.jpg" />
+    <None Include="Resources\realgrass_background.jpg" />
+    <None Include="Resources\tree-original.png" />
+    <None Include="Resources\Rock.jpg" />
     <Content Include="textures\Ground.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

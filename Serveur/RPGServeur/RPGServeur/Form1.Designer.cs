@@ -32,6 +32,7 @@
             this.lblStatutServeur = new System.Windows.Forms.Label();
             this.btnActiver = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblIp = new System.Windows.Forms.Label();
             this.map1 = new RPGServeur.Map();
             ((System.ComponentModel.ISupportInitialize)(this.map1)).BeginInit();
             this.SuspendLayout();
@@ -59,19 +60,30 @@
             // 
             this.timer1.Interval = 40;
             // 
+            // lblIp
+            // 
+            this.lblIp.AutoSize = true;
+            this.lblIp.Location = new System.Drawing.Point(136, 18);
+            this.lblIp.Name = "lblIp";
+            this.lblIp.Size = new System.Drawing.Size(35, 13);
+            this.lblIp.TabIndex = 4;
+            this.lblIp.Text = "label1";
+            // 
             // map1
             // 
-            this.map1.Location = new System.Drawing.Point(110, 18);
+            this.map1.Location = new System.Drawing.Point(129, 54);
             this.map1.Name = "map1";
-            this.map1.Size = new System.Drawing.Size(481, 324);
+            this.map1.Size = new System.Drawing.Size(1007, 533);
             this.map1.TabIndex = 3;
             this.map1.TabStop = false;
+            this.map1.Click += new System.EventHandler(this.map1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 424);
+            this.ClientSize = new System.Drawing.Size(1386, 681);
+            this.Controls.Add(this.lblIp);
             this.Controls.Add(this.map1);
             this.Controls.Add(this.btnActiver);
             this.Controls.Add(this.lblStatutServeur);
@@ -91,6 +103,7 @@
         private System.Windows.Forms.Button btnActiver;
         private System.Windows.Forms.Timer timer1;
         private Map map1;
+        private System.Windows.Forms.Label lblIp;
     }
 }
 

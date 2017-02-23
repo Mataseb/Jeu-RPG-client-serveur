@@ -19,6 +19,8 @@ namespace RPGServeur
         //vrai si "listener" est en écoute et faux si "listener" n'est pas en écoute.
         bool doListenerListen;
 
+
+
         public Form1()
         {
             InitializeComponent();
@@ -46,6 +48,8 @@ namespace RPGServeur
             listener.Start();
             doListenerListen = true;
             lblStatutServeur.Text = "Statut: Activé";
+            lblIp.Text = "Adresse du serveur : " + GetLocalIPAddress();
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -75,6 +79,11 @@ namespace RPGServeur
                 lblStatutServeur.Text = "Statut: Activé";
                 btnActiver.Text = "Désactiver";
             }
+        }
+
+        private void map1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
