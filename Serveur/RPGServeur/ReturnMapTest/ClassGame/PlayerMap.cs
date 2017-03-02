@@ -33,7 +33,7 @@ namespace ReturnMapTest.ClassGame
         public PlayerMap() : base()
         {
             t = new Timer();
-            t.Interval = 100;
+            t.Interval = 40;
             t.Tick += this.Tick;
             t.Enabled = true;
 
@@ -43,7 +43,7 @@ namespace ReturnMapTest.ClassGame
 
         private void Tick(object sender, EventArgs e)
         {
-            Invalidate(); // lol
+            Invalidate();
             map = baseGame.PlayerMap(1);
         }
 
@@ -53,7 +53,7 @@ namespace ReturnMapTest.ClassGame
             {
                 for (int j = 0; j < height; j++)
                 {
-                    switch (map[j, i])
+                    switch (TileMap[j, i])
                     {
                         case 1:
                             img = Properties.Resources.Grass;
