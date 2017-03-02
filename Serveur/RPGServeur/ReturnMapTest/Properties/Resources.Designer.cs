@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RPGServeur.Properties {
+namespace ReturnMapTest.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace RPGServeur.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RPGServeur.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ReturnMapTest.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,16 +66,6 @@ namespace RPGServeur.Properties {
         internal static System.Drawing.Bitmap Grass {
             get {
                 object obj = ResourceManager.GetObject("Grass", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Gravel {
-            get {
-                object obj = ResourceManager.GetObject("Gravel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

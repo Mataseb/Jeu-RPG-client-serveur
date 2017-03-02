@@ -111,22 +111,22 @@ namespace RPGServeur
                     switch (TileMap[j, i])
                     {
                         case 1:
-                            img = Properties.Resources.Grass;
+                            img = ReturnMapTest.Properties.Resources.Grass;
                             break;
                         case 2:
-                            img = Properties.Resources.Water;
+                            img = ReturnMapTest.Properties.Resources.Water;
                             break;
                         case 3:
-                            img = Properties.Resources.Rock;
+                            img = ReturnMapTest.Properties.Resources.Rock;
                             break;
                         case 4:
-                            img = Properties.Resources.GroundDirt;
+                            img = ReturnMapTest.Properties.Resources.GroundDirt;
                             break;
                         case 5:
-                            img = Properties.Resources.Tree;
+                            img = ReturnMapTest.Properties.Resources.Tree;
                             break;
                         default:
-                            img = Properties.Resources.Ground;
+                            img = ReturnMapTest.Properties.Resources.Ground;
                             break;
                     }
                     e.Graphics.DrawImage(img, new Rectangle(origin.X + i * tileSize, origin.Y + j * tileSize, tileSize, tileSize));

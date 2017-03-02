@@ -73,7 +73,7 @@
             // 
             this.map1.Location = new System.Drawing.Point(129, 54);
             this.map1.Name = "map1";
-            this.map1.Size = new System.Drawing.Size(1007, 533);
+            this.map1.Size = new System.Drawing.Size(512, 510);
             this.map1.TabIndex = 3;
             this.map1.TabStop = false;
             this.map1.Click += new System.EventHandler(this.map1_Click);
@@ -82,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1386, 681);
+            this.ClientSize = new System.Drawing.Size(663, 576);
             this.Controls.Add(this.lblIp);
             this.Controls.Add(this.map1);
             this.Controls.Add(this.btnActiver);

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CA5455B4-1C8F-430D-A03C-D1FA06B60E48}</ProjectGuid>
+    <ProjectGuid>{B469DF7F-F009-4FA8-86EA-FA7CA7DF0A49}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RPGServeur</RootNamespace>
-    <AssemblyName>RPGServeur</AssemblyName>
+    <RootNamespace>ReturnMapTest</RootNamespace>
+    <AssemblyName>ReturnMapTest</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,17 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseGame.cs" />
+    <Compile Include="ClassGame\BaseGame.cs" />
+    <Compile Include="ClassGame\Map.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassGame\Player.cs" />
+    <Compile Include="ClassGame\PlayerMap.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Map.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -85,15 +88,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="textures\Gravel.jpg" />
-    <None Include="Resources\tex04.jpg" />
-    <None Include="Resources\realgrass_background.jpg" />
-    <None Include="Resources\tree-original.png" />
-    <None Include="Resources\Rock.jpg" />
     <None Include="Resources\GroundDirt.jpg" />
-    <Content Include="textures\Ground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\realgrass_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tex04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tree-original.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ground.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
