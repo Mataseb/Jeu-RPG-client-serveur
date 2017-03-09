@@ -40,5 +40,10 @@ namespace ReturnMapTest
             }
             throw new Exception("Local IP Address Not Found!");
         }
+
+        private void btnActiver_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

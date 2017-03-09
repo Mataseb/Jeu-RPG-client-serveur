@@ -49,7 +49,7 @@ namespace RPGServeur
         /// <summary>
         /// Suprimme un joueur du jeu
         /// </summary>
-        public void DelPlayer(int idPlayer)
+        public void DeletePlayer(int idPlayer)
         {
 
         }
@@ -71,10 +71,10 @@ namespace RPGServeur
             }
             else
             {
-                posX = 5;
-                posY = 5;
+                posX = 25;
+                posY = 25;
             }
-
+            //Si le joueur n'est pas au bord de la map
             if ((posX >= 11 && posY >= 11) && (posX <= 39 && posY <= 39))
             {
                 for (int i = -10; i <= 10; i++)
@@ -85,48 +85,108 @@ namespace RPGServeur
                     }
                 }
             }
-            else if ((posX < 11 && posY < 11))
+            else
             {
-                for (int i = 0; i <= 20; i++)
+                // Ligne supérieur centre
+                if (posY <= 11 && posX >= 11 && posX <= 39)
                 {
-                    for (int j = 0; j <= 20; j++)
+                    //ne corrige pas le (x)
+                    for (int i = -10; i <= 10; i++)
                     {
-                        playermap[j, i] = Game.map[j, i];
+                        //corrige le (y)
+                        for (int j = 0; j <= 20; j++)
+                        {
+                            playermap[j, i + 10] = Game.map[j, posX + i];
+                        }
                     }
                 }
-            }
-            else if ((posX < 11 && posY > 39))
-            {
-                for (int i = 0; i <= 20; i++)
+                // Ligne inférieur centre
+                if (posY >= 39 && posX >= 11 && posX <= 39)
                 {
-                    for (int j = 30; j <= 50; j++)
+                    //ne corrige pas le (x)
+                    for (int i = -10; i <= 10; i++)
                     {
-                        playermap[j - 30, i] = Game.map[j - 1, i];
+                        //corrige le (y)
+                        for (int j = 30; j <= 50; j++)
+                        {
+                            playermap[j - 30, i + 10] = Game.map[j - 1, posX + i];
+                        }
                     }
                 }
-            }
-            else if ((posX > 39 && posY > 39))
-            {
-                for (int i = 30; i <= 50; i++)
-                {
-                    for (int j = 30; j <= 50; j++)
-                    {
-                        playermap[j - 30, i - 30] = Game.map[j - 1, i - 1];
-                    }
-                }
-            }
-            else if ((posX > 39 && posY < 11))
-            {
-                for (int i = 30; i <= 50; i++)
-                {
-                    for (int j = 0; j <= 20; j++)
-                    {
-                        playermap[j, i - 30] = Game.map[j, i - 1];
-                    }
-                }
-            }
 
+                // Colonne de gauche centre
+                if (posX <= 11 && posY >= 11 && posY <= 39)
+                {
+                    //corrige le (x)
+                    for (int i = 0; i <= 20; i++)
+                    {
+                        //ne corrige pas le (y)
+                        for (int j = -10; j <= 10; j++)
+                        {
+                            playermap[j + 10, i] = Game.map[posY + j, i];
+                        }
+                    }
 
+                    //coin supérieur gauche
+                    if (posY < 11)
+                    {
+                        for (int i = 0; i <= 20; i++)
+                        {
+                            for (int j = 0; j <= 20; j++)
+                            {
+                                playermap[j, i] = Game.map[j, i];
+                            }
+                        }
+                    }
+                    //coin inférieur gauche
+                    else if (posY > 39)
+                    {
+                        for (int i = 0; i <= 20; i++)
+                        {
+                            for (int j = 30; j <= 50; j++)
+                            {
+                                playermap[j - 30, i] = Game.map[j - 1, i];
+                            }
+                        }
+                    }
+                }
+                // Colonne de droite centre
+                if (posX >= 39 && posY >= 11 && posY <= 39)
+                {
+                    //corrige le (x)
+                    for (int i = 30; i <= 50; i++)
+                    {
+                        //ne corrige pas le (y)
+                        for (int j = -10; j <= 10; j++)
+                        {
+                            playermap[j + 10, i - 30] = Game.map[posY + j, i - 1];
+                        }
+                    }
+
+                    //coin supérieur droit
+                    if (posY < 11)
+                    {
+                        for (int i = 30; i <= 50; i++)
+                        {
+                            for (int j = 0; j <= 20; j++)
+                            {
+                                playermap[j, i - 30] = Game.map[j, i - 1];
+                            }
+                        }
+                    }
+                    //coin inférieur droit
+                    else if (posY > 39)
+                    {
+                        for (int i = 30; i <= 50; i++)
+                        {
+                            for (int j = 30; j <= 50; j++)
+                            {
+                                playermap[j - 30, i - 30] = Game.map[j - 1, i - 1];
+                            }
+                        }
+                    }
+                }
+            }
             return playermap;
         }
     }

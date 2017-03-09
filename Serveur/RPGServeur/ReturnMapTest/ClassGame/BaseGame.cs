@@ -49,7 +49,7 @@ namespace RPGServeur
         /// <summary>
         /// Suprimme un joueur du jeu
         /// </summary>
-        public void DelPlayer(int idPlayer)
+        public void DeletePlayer(int idPlayer)
         {
 
         }
@@ -71,8 +71,8 @@ namespace RPGServeur
             }
             else
             {
-                posX = 45;
-                posY = 25;
+                posX = 12;
+                posY = 12;
             }
             //Si le joueur n'est pas au bord de la map
             if ((posX >= 11 && posY >= 11) && (posX <= 39 && posY <= 39))
@@ -163,7 +163,6 @@ namespace RPGServeur
                         }
                     }
 
-
                     //coin supérieur droit
                     if (posY < 11)
                     {
@@ -187,53 +186,7 @@ namespace RPGServeur
                         }
                     }
                 }
-
-
-
             }
-
-            //else if ((posX < 11 && posY < 11))
-            //{
-            //    for (int i = 0; i <= 20; i++)
-            //    {
-            //        for (int j = 0; j <= 20; j++)
-            //        {
-            //            playermap[j, i] = Game.map[j, i];
-            //        }
-            //    }
-            //}
-            //else if ((posX < 11 && posY > 39))
-            //{
-            //    for (int i = 0; i <= 20; i++)
-            //    {
-            //        for (int j = 30; j <= 50; j++)
-            //        {
-            //            playermap[j - 30, i] = Game.map[j - 1, i];
-            //        }
-            //    }
-            //}
-            //else if ((posX > 39 && posY > 39))
-            //{
-            //    for (int i = 30; i <= 50; i++)
-            //    {
-            //        for (int j = 30; j <= 50; j++)
-            //        {
-            //            playermap[j - 30, i - 30] = Game.map[j - 1, i - 1];
-            //        }
-            //    }
-            //}
-            //else if ((posX > 39 && posY < 11))
-            //{
-            //    for (int i = 30; i <= 50; i++)
-            //    {
-            //        for (int j = 0; j <= 20; j++)
-            //        {
-            //            playermap[j, i - 30] = Game.map[j, i - 1];
-            //        }
-            //    }
-            //}
-
-
             return playermap;
         }
     }
