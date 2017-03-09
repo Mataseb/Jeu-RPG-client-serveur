@@ -74,5 +74,25 @@ namespace RPGServeur
             this._ip = ip;
             this._position = position;
         }
+
+        public void MoveRight()
+        {
+            this._position.X += 1;
+        }
+
+        public void MoveLeft()
+        {
+            this._position.X -= 1;
+        }
+
+        public void MoveUp()
+        {
+            this._position.Y -= 1;
+        }
+
+        public void MoveDown()
+        {
+            this._position.Y += 1;
+        }
     }
 }

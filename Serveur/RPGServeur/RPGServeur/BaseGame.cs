@@ -51,7 +51,7 @@ namespace RPGServeur
         /// </summary>
         public void DelPlayer(int idPlayer)
         {
-
+            players.RemoveAt(idPlayer);
         }
 
         /// <summary>
