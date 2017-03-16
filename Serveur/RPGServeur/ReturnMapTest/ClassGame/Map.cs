@@ -17,6 +17,7 @@ namespace RPGServeur
         const int WIDTH = 50;
         const int TILESIZE = 10;
         public int[,] map;
+        List<Player> players;
 
         public int[,] TileMap
         {
@@ -28,6 +29,19 @@ namespace RPGServeur
             set
             {
                 map = value;
+            }
+        }
+
+        internal List<Player> Players
+        {
+            get
+            {
+                return players;
+            }
+
+            set
+            {
+                players = value;
             }
         }
 
@@ -90,6 +104,7 @@ namespace RPGServeur
         };
         #endregion
             base.Paint += BaseGame_Paint;
+
         }
 
         private void BaseGame_Paint(object sender, PaintEventArgs e)

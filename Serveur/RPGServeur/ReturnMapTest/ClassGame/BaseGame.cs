@@ -57,6 +57,7 @@ namespace RPGServeur
                 count++;
             }
             players.Add(new Player(count + 1, username, ip, spawns[rdn.Next(0, spawns.Count())]));
+            map.Players = players;
         }
 
         /// <summary>
