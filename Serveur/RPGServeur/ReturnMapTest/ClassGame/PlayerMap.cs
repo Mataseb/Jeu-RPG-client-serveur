@@ -15,7 +15,6 @@ namespace ReturnMapTest.ClassGame
     {
         Image img;
         Point origin;
-        int tileSize = 20;
         const int HEIGHT = 21;
         const int WIDTH = 21;
         const int TILESIZE = 20;
