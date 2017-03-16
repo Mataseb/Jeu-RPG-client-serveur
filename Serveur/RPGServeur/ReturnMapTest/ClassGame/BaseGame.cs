@@ -32,6 +32,19 @@ namespace RPGServeur
             }
         }
 
+        internal List<Player> Players
+        {
+            get
+            {
+                return players;
+            }
+
+            set
+            {
+                players = value;
+            }
+        }
+
         /// <summary>
         /// Ajoute un joueur dans le jeu
         /// </summary>
@@ -71,8 +84,8 @@ namespace RPGServeur
             }
             else
             {
-                posX = 12;
-                posY = 12;
+                posX = 45;
+                posY = 45;
             }
             //Si le joueur n'est pas au bord de la map
             if ((posX >= 11 && posY >= 11) && (posX <= 39 && posY <= 39))
@@ -126,27 +139,28 @@ namespace RPGServeur
                             playermap[j + 10, i] = Game.map[posY + j, i];
                         }
                     }
+                }
 
-                    //coin supérieur gauche
-                    if (posY < 11)
+                //coin supérieur gauche
+                if (posY < 11 && posX < 11)
+                {
+                    for (int i = 0; i <= 20; i++)
                     {
-                        for (int i = 0; i <= 20; i++)
+                        for (int j = 0; j <= 20; j++)
                         {
-                            for (int j = 0; j <= 20; j++)
-                            {
-                                playermap[j, i] = Game.map[j, i];
-                            }
+                            playermap[j, i] = Game.map[j, i];
                         }
                     }
-                    //coin inférieur gauche
-                    else if (posY > 39)
+                }
+
+                //coin inférieur gauche
+                if (posY > 39 && posX < 11)
+                {
+                    for (int i = 0; i <= 20; i++)
                     {
-                        for (int i = 0; i <= 20; i++)
+                        for (int j = 30; j <= 50; j++)
                         {
-                            for (int j = 30; j <= 50; j++)
-                            {
-                                playermap[j - 30, i] = Game.map[j - 1, i];
-                            }
+                            playermap[j - 30, i] = Game.map[j - 1, i];
                         }
                     }
                 }
@@ -163,29 +177,30 @@ namespace RPGServeur
                         }
                     }
 
-                    //coin supérieur droit
-                    if (posY < 11)
+                }
+                //coin supérieur droit
+                if (posY < 11 && posX > 39)
+                {
+                    for (int i = 30; i <= 50; i++)
                     {
-                        for (int i = 30; i <= 50; i++)
+                        for (int j = 0; j <= 20; j++)
                         {
-                            for (int j = 0; j <= 20; j++)
-                            {
-                                playermap[j, i - 30] = Game.map[j, i - 1];
-                            }
-                        }
-                    }
-                    //coin inférieur droit
-                    else if (posY > 39)
-                    {
-                        for (int i = 30; i <= 50; i++)
-                        {
-                            for (int j = 30; j <= 50; j++)
-                            {
-                                playermap[j - 30, i - 30] = Game.map[j - 1, i - 1];
-                            }
+                            playermap[j, i - 30] = Game.map[j, i - 1];
                         }
                     }
                 }
+                //coin inférieur droit
+                if (posY > 39 && posX > 39)
+                {
+                    for (int i = 30; i <= 50; i++)
+                    {
+                        for (int j = 30; j <= 50; j++)
+                        {
+                            playermap[j - 30, i - 30] = Game.map[j - 1, i - 1];
+                        }
+                    }
+                }
+
             }
             return playermap;
         }

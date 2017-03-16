@@ -11,14 +11,32 @@ namespace RPGServeur
     class Map : PictureBox
     {
         Image img;
-        Timer t;
         Color couleur;
         Point origin;
-        int height = 50;
-        int width = 50;
-        int tileSize =  10;
-        #region map
-        public int[,] map = new int[50, 50] {
+        const int HEIGHT = 50;
+        const int WIDTH = 50;
+        const int TILESIZE = 10;
+        public int[,] map;
+
+        public int[,] TileMap
+        {
+            get
+            {
+                return map;
+            }
+
+            set
+            {
+                map = value;
+            }
+        }
+
+        public Map() : base()
+        {
+            base.Width = WIDTH;
+            base.Height = HEIGHT;
+            #region map
+            map = new int[WIDTH, HEIGHT] {
             {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1},
             { 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1},
             { 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1},
@@ -71,42 +89,14 @@ namespace RPGServeur
             { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5}
         };
         #endregion
-
-        public int[,] TileMap
-        {
-            get
-            {
-                return map;
-            }
-
-            set
-            {
-                map = value;
-            }
-        }
-
-        public Map() : base()
-        {
-            t = new Timer();
-            t.Interval = 222;
-            t.Tick += this.Tick;
-            t.Enabled = true;
-
-            couleur = new Color();
-            origin = new Point(5, 5);
             base.Paint += BaseGame_Paint;
-        }
-
-        private void Tick(object sender, EventArgs e)
-        {
-            base.Refresh();
         }
 
         private void BaseGame_Paint(object sender, PaintEventArgs e)
         {
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < WIDTH; i++)
             {
-                for (int j = 0; j < height; j++)
+                for (int j = 0; j < HEIGHT; j++)
                 {
                     switch (TileMap[j, i])
                     {
@@ -129,7 +119,7 @@ namespace RPGServeur
                             img = ReturnMapTest.Properties.Resources.Ground;
                             break;
                     }
-                    e.Graphics.DrawImage(img, new Rectangle(origin.X + i * tileSize, origin.Y + j * tileSize, tileSize, tileSize));
+                    e.Graphics.DrawImage(img, new Rectangle(origin.X + i * TILESIZE, origin.Y + j * TILESIZE, TILESIZE, TILESIZE));
                 }
             }
         }

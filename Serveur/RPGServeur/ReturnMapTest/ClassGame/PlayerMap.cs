@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,13 +14,12 @@ namespace ReturnMapTest.ClassGame
     class PlayerMap : PictureBox
     {
         Image img;
-        Timer t;
-        Color couleur;
         Point origin;
-        int height = 21;
-        int width = 21;
         int tileSize = 20;
-        int[,] map = new int[21, 21];
+        const int HEIGHT = 21;
+        const int WIDTH = 21;
+        const int TILESIZE = 20;
+        int[,] map;
 
         BaseGame baseGame;
 
@@ -30,28 +31,35 @@ namespace ReturnMapTest.ClassGame
             }
         }
 
+        public BaseGame BaseGame
+        {
+            get
+            {
+                return baseGame;
+            }
+        }
+
         public PlayerMap() : base()
         {
-            t = new Timer();
-            t.Interval = 40;
-            t.Tick += this.Tick;
-            t.Enabled = true;
-
+            map = new int[WIDTH, HEIGHT];
             base.Paint += PlayerMap_Paint;
             baseGame = new BaseGame();
+            baseGame.AddPlayer(1, "Player 1", IPAddress.Parse(GetLocalIPAddress()));
+            base.Height = HEIGHT * TILESIZE;
+            base.Width = HEIGHT * TILESIZE;
         }
 
-        private void Tick(object sender, EventArgs e)
+        public void UpdateMap()
         {
-            Invalidate();
             map = baseGame.PlayerMap(1);
+            this.Invalidate();
         }
-
-        private void PlayerMap_Paint(object sender, PaintEventArgs e)
+        //Dessine la map
+        public void PlayerMap_Paint(object sender, PaintEventArgs e)
         {
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < WIDTH; i++)
             {
-                for (int j = 0; j < height; j++)
+                for (int j = 0; j < HEIGHT; j++)
                 {
                     switch (TileMap[j, i])
                     {
@@ -74,8 +82,53 @@ namespace ReturnMapTest.ClassGame
                             img = Properties.Resources.Ground;
                             break;
                     }
-                    e.Graphics.DrawImage(img, new Rectangle(origin.X + i * tileSize, origin.Y + j * tileSize, tileSize, tileSize));
+                    e.Graphics.DrawImage(img, new Rectangle(origin.X + i * TILESIZE, origin.Y + j * TILESIZE, TILESIZE, TILESIZE));
                 }
+            }
+        }
+
+        public static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("Local IP Address Not Found!");
+        }
+
+        public void MoveUp(int idPlayer)
+        {
+            if (baseGame.Players[idPlayer - 1].Position.Y > 1)
+            {
+                baseGame.Players[idPlayer - 1].MoveUp();
+            }
+        }
+
+        public void MoveDown(int idPlayer)
+        {
+            if (baseGame.Players[idPlayer - 1].Position.Y < baseGame.Game.Height - 1)
+            {
+                baseGame.Players[idPlayer - 1].MoveDown();
+            }
+        }
+
+        public void MoveRight(int idPlayer)      
+        {
+            if (baseGame.Players[idPlayer - 1].Position.X < BaseGame.Game.Width - 1)
+            {
+                baseGame.Players[idPlayer - 1].MoveRight();
+            }
+        }
+
+        public void MoveLeft(int idPlayer)
+        {
+            if (baseGame.Players[idPlayer - 1].Position.X > 1)
+            {
+                baseGame.Players[idPlayer - 1].MoveLeft();
             }
         }
     }
