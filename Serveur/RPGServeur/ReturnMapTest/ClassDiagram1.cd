@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RPGServeur.BaseGame">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QARAEAAAAAAAAABAAAAAAAABAAggAAAAIAgAQAAAAAA=</HashCode>
+      <FileName>ClassGame\BaseGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPGServeur.Map">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAABEAgAAAAAEAEAAAAAAAAAAAQgAAAAIAAAAABCAAA=</HashCode>
+      <FileName>ClassGame\Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPGServeur.Player">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAAAAAgAQBAAAAAAAAAAAAIQAIAgAAAIAA=</HashCode>
+      <FileName>ClassGame\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReturnMapTest.ClassGame.PlayerMap">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAEJEAAACAAAFAAAAAAAAAAAAAQAAgAIUAAAAABCAAA=</HashCode>
+      <FileName>ClassGame\PlayerMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReturnMapTest.Form1">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAACACCAAgAAAACQIABCEAAAAgAIEAQCEABAABA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReturnMapTest.Program" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReturnMapTest.Properties.Resources" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAIAEABEAACAQAgAAAAAAAAQAAAEIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReturnMapTest.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

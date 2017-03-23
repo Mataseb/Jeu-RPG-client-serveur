@@ -17,7 +17,7 @@ namespace ReturnMapTest.ClassGame
         Point origin;
         const int HEIGHT = 21;
         const int WIDTH = 21;
-        const int TILESIZE = 20;
+        public const int TILESIZE = 20;
         int[,] map;
 
         BaseGame baseGame;
@@ -41,11 +41,11 @@ namespace ReturnMapTest.ClassGame
         public PlayerMap() : base()
         {
             map = new int[WIDTH, HEIGHT];
-            base.Paint += PlayerMap_Paint;
             baseGame = new BaseGame();
             baseGame.AddPlayer(1, "Player 1", IPAddress.Parse(GetLocalIPAddress()));
             base.Height = HEIGHT * TILESIZE;
             base.Width = HEIGHT * TILESIZE;
+            base.Paint += PlayerMap_Paint;
         }
 
         public void UpdateMap()
@@ -56,10 +56,13 @@ namespace ReturnMapTest.ClassGame
         //Dessine la map
         public void PlayerMap_Paint(object sender, PaintEventArgs e)
         {
+            int a = baseGame.Players[0].Position.X;
+
             for (int i = 0; i < WIDTH; i++)
             {
                 for (int j = 0; j < HEIGHT; j++)
                 {
+                    
                     switch (TileMap[j, i])
                     {
                         case 1:
@@ -77,11 +80,22 @@ namespace ReturnMapTest.ClassGame
                         case 5:
                             img = Properties.Resources.Tree;
                             break;
+                        case 6:
+                            img = Properties.Resources.Link;
+                            break;
                         default:
                             img = Properties.Resources.Ground;
                             break;
                     }
+
                     e.Graphics.DrawImage(img, new Rectangle(origin.X + i * TILESIZE, origin.Y + j * TILESIZE, TILESIZE, TILESIZE));
+
+                    foreach (Player player in BaseGame.Players)
+                    {
+                        
+                        e.Graphics.DrawImage(Properties.Resources.Link, new Rectangle(BaseGame.getPositionPlayerInPlayerMap(player).X * TILESIZE, BaseGame.getPositionPlayerInPlayerMap(player).Y * TILESIZE, TILESIZE, TILESIZE));
+                        //e.Graphics.DrawImage(Properties.Resources.Link, BaseGame.getPositionPlayerInPlayerMap(player));
+                    }
                 }
             }
         }
@@ -115,7 +129,7 @@ namespace ReturnMapTest.ClassGame
             }
         }
 
-        public void MoveRight(int idPlayer)      
+        public void MoveRight(int idPlayer)
         {
             if (baseGame.Players[idPlayer - 1].Position.X < BaseGame.Game.Width - 1)
             {

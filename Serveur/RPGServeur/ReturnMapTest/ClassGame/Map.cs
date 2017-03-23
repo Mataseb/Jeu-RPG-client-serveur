@@ -11,10 +11,9 @@ namespace RPGServeur
     class Map : PictureBox
     {
         Image img;
-        Color couleur;
         Point origin;
-        const int HEIGHT = 50;
-        const int WIDTH = 50;
+        public const int HEIGHT = 50;
+        public const int WIDTH = 50;
         const int TILESIZE = 10;
         public int[,] map;
         List<Player> players;
@@ -103,8 +102,7 @@ namespace RPGServeur
             { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5}
         };
         #endregion
-            base.Paint += BaseGame_Paint;
-
+            base.Paint += BaseGame_Paint;           
         }
 
         private void BaseGame_Paint(object sender, PaintEventArgs e)
@@ -113,28 +111,31 @@ namespace RPGServeur
             {
                 for (int j = 0; j < HEIGHT; j++)
                 {
-                    switch (TileMap[j, i])
-                    {
-                        case 1:
-                            img = ReturnMapTest.Properties.Resources.Grass;
-                            break;
-                        case 2:
-                            img = ReturnMapTest.Properties.Resources.Water;
-                            break;
-                        case 3:
-                            img = ReturnMapTest.Properties.Resources.Rock;
-                            break;
-                        case 4:
-                            img = ReturnMapTest.Properties.Resources.GroundDirt;
-                            break;
-                        case 5:
-                            img = ReturnMapTest.Properties.Resources.Tree;
-                            break;
-                        default:
-                            img = ReturnMapTest.Properties.Resources.Ground;
-                            break;
-                    }
-                    e.Graphics.DrawImage(img, new Rectangle(origin.X + i * TILESIZE, origin.Y + j * TILESIZE, TILESIZE, TILESIZE));
+                    //switch (TileMap[j, i])
+                    //{
+                    //    case 1:
+                    //        img = ReturnMapTest.Properties.Resources.Grass;
+                    //        break;
+                    //    case 2:
+                    //        img = ReturnMapTest.Properties.Resources.Water;
+                    //        break;
+                    //    case 3:
+                    //        img = ReturnMapTest.Properties.Resources.Rock;
+                    //        break;
+                    //    case 4:
+                    //        img = ReturnMapTest.Properties.Resources.GroundDirt;
+                    //        break;
+                    //    case 5:
+                    //        img = ReturnMapTest.Properties.Resources.Tree;
+                    //        break;
+                    //    case 6:
+                    //        img = ReturnMapTest.Properties.Resources.Link;
+                    //        break;
+                    //    default:
+                    //        img = ReturnMapTest.Properties.Resources.Ground;
+                    //        break;
+                    //}
+                    //e.Graphics.DrawImage(img, new Rectangle(origin.X + i * TILESIZE, origin.Y + j * TILESIZE, TILESIZE, TILESIZE));
                 }
             }
         }

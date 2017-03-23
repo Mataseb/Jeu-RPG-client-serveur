@@ -14,6 +14,11 @@ namespace RPGServeur
         Map map;
         List<Player> players;
         List<Point> spawns;
+        Point positionPlayerMap00;
+
+        const int DISTANCE_BORD_JOUEUR = 10;
+        const int DISTANCE_BORD_MAP_JOUEUR_CENTRE = 11;
+
 
         public BaseGame()
         {
@@ -45,6 +50,19 @@ namespace RPGServeur
             }
         }
 
+        public Point PositionPlayerMap00
+        {
+            get
+            {
+                return positionPlayerMap00;
+            }
+
+            set
+            {
+                positionPlayerMap00 = value;
+            }
+        }
+
         /// <summary>
         /// Ajoute un joueur dans le jeu
         /// </summary>
@@ -66,6 +84,20 @@ namespace RPGServeur
         public void DeletePlayer(int idPlayer)
         {
 
+        }
+
+        public Point getPositionPlayerInPlayerMap(Player player)
+        {
+            int PositionYPlayerInPlayerMap = 0;
+            int PositionXPlayerInPlayerMap = 0;
+
+            PositionYPlayerInPlayerMap = player.Position.Y - PositionPlayerMap00.Y;
+            PositionXPlayerInPlayerMap = player.Position.X - PositionPlayerMap00.X;
+
+
+            Point PositionPlayerInPlayerMap = new Point(PositionXPlayerInPlayerMap, PositionYPlayerInPlayerMap);
+
+            return PositionPlayerInPlayerMap;
         }
 
         /// <summary>
@@ -95,6 +127,7 @@ namespace RPGServeur
                 {
                     for (int j = -10; j <= 10; j++)
                     {
+                        PositionPlayerMap00 = new Point((posX + i) - (i + 10), (posY + j) - (j + 10));
                         playermap[j + 10, i + 10] = Game.map[posY + j, posX + i];
                     }
                 }
@@ -110,6 +143,7 @@ namespace RPGServeur
                         //corrige le (y)
                         for (int j = 0; j <= 20; j++)
                         {
+                            PositionPlayerMap00 = new Point((posX + i) - (i + 10), j - j);
                             playermap[j, i + 10] = Game.map[j, posX + i];
                         }
                     }
@@ -123,6 +157,7 @@ namespace RPGServeur
                         //corrige le (y)
                         for (int j = 30; j <= 50; j++)
                         {
+                            PositionPlayerMap00 = new Point((posX + i) - (i + 10), (j - 1) - (j - 30));
                             playermap[j - 30, i + 10] = Game.map[j - 1, posX + i];
                         }
                     }
@@ -137,6 +172,7 @@ namespace RPGServeur
                         //ne corrige pas le (y)
                         for (int j = -10; j <= 10; j++)
                         {
+                            PositionPlayerMap00 = new Point(i - i, (posY + j) - (j + 10));
                             playermap[j + 10, i] = Game.map[posY + j, i];
                         }
                     }
@@ -149,6 +185,7 @@ namespace RPGServeur
                     {
                         for (int j = 0; j <= 20; j++)
                         {
+                            PositionPlayerMap00 = new Point(i - i, j - j);
                             playermap[j, i] = Game.map[j, i];
                         }
                     }
@@ -161,6 +198,7 @@ namespace RPGServeur
                     {
                         for (int j = 30; j <= 50; j++)
                         {
+                            PositionPlayerMap00 = new Point(i - i, (j - 1) - (j - 30));
                             playermap[j - 30, i] = Game.map[j - 1, i];
                         }
                     }
@@ -174,6 +212,7 @@ namespace RPGServeur
                         //ne corrige pas le (y)
                         for (int j = -10; j <= 10; j++)
                         {
+                            PositionPlayerMap00 = new Point((i - 1) - (i - 30), (posY + j) - (j + 10));
                             playermap[j + 10, i - 30] = Game.map[posY + j, i - 1];
                         }
                     }
@@ -186,6 +225,7 @@ namespace RPGServeur
                     {
                         for (int j = 0; j <= 20; j++)
                         {
+                            PositionPlayerMap00 = new Point((i - 1) - (i - 30), j - j);
                             playermap[j, i - 30] = Game.map[j, i - 1];
                         }
                     }
@@ -197,6 +237,7 @@ namespace RPGServeur
                     {
                         for (int j = 30; j <= 50; j++)
                         {
+                            PositionPlayerMap00 = new Point((i - 1) - (i - 30), (j - 1) - (j - 30));
                             playermap[j - 30, i - 30] = Game.map[j - 1, i - 1];
                         }
                     }

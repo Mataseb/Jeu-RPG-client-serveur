@@ -50,6 +50,7 @@ namespace ReturnMapTest
             playerMap1.MoveUp(1);
             playerMap1.UpdateMap();
             lblCoord.Text = playerMap1.BaseGame.Players[0].Position.ToString();
+            lblPlayermaporigin.Text = playerMap1.BaseGame.PositionPlayerMap00.X + " ; " + playerMap1.BaseGame.PositionPlayerMap00.Y;
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
@@ -61,6 +62,7 @@ namespace ReturnMapTest
         {
             playerMap1.MoveDown(1);
             playerMap1.UpdateMap();
+            lblPlayermaporigin.Text = playerMap1.BaseGame.PositionPlayerMap00.X + " ; " + playerMap1.BaseGame.PositionPlayerMap00.Y;
 
             lblCoord.Text = playerMap1.BaseGame.Players[0].Position.ToString();
         }
@@ -69,6 +71,7 @@ namespace ReturnMapTest
         {
             playerMap1.MoveLeft(1);
             playerMap1.UpdateMap();
+            lblPlayermaporigin.Text = playerMap1.BaseGame.PositionPlayerMap00.X + " ; " + playerMap1.BaseGame.PositionPlayerMap00.Y;
 
             lblCoord.Text = playerMap1.BaseGame.Players[0].Position.ToString();
         }
@@ -77,6 +80,7 @@ namespace ReturnMapTest
         {
             playerMap1.MoveRight(1);
             playerMap1.UpdateMap();
+            lblPlayermaporigin.Text = playerMap1.BaseGame.PositionPlayerMap00.X + " ; " + playerMap1.BaseGame.PositionPlayerMap00.Y;
 
             lblCoord.Text = playerMap1.BaseGame.Players[0].Position.ToString();
         }
