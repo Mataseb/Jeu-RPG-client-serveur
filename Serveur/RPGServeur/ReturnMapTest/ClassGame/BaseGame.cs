@@ -15,18 +15,21 @@ namespace RPGServeur
         List<Player> players;
         List<Point> spawns;
         Point positionPlayerMap00;
-
+        
+        //Distance en cases entre le joueur et le bord de sa vue
         const int DISTANCE_BORD_JOUEUR = 10;
-        const int DISTANCE_BORD_MAP_JOUEUR_CENTRE = 11;
 
+        //Distance en cases entre le joueur au centre de sa vue et le bord de sa vue
+        const int DISTANCE_BORD_MAP_JOUEUR_CENTRE = DISTANCE_BORD_JOUEUR+1;
 
+        //vue joueur
+        const int DISTANCE_VUE_JOUEUR = 2 * DISTANCE_BORD_JOUEUR;
         public BaseGame()
         {
             map = new Map();
             players = new List<Player>();
             spawns = new List<Point>();
-            spawns.Add(new Point(5, 5));
-            spawns.Add(new Point(45, 45));
+            spawns.Add(new Point(25, 25));
         }
 
         public Map Game
@@ -120,129 +123,147 @@ namespace RPGServeur
                 posX = 45;
                 posY = 45;
             }
-            //Si le joueur n'est pas au bord de la map
-            if ((posX >= 11 && posY >= 11) && (posX <= 39 && posY <= 39))
+            #region Si le joueur n'est pas au bord de la map
+            if ((posX >= DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                && posY >= DISTANCE_BORD_MAP_JOUEUR_CENTRE) 
+                && (posX <= Game.Width-DISTANCE_BORD_MAP_JOUEUR_CENTRE && posY <= Game.Height-DISTANCE_BORD_MAP_JOUEUR_CENTRE))
             {
-                for (int i = -10; i <= 10; i++)
+                for (int i = -DISTANCE_BORD_JOUEUR; i <= DISTANCE_BORD_JOUEUR; i++)
                 {
-                    for (int j = -10; j <= 10; j++)
+                    for (int j = -DISTANCE_BORD_JOUEUR; j <= DISTANCE_BORD_JOUEUR; j++)
                     {
-                        PositionPlayerMap00 = new Point((posX + i) - (i + 10), (posY + j) - (j + 10));
-                        playermap[j + 10, i + 10] = Game.map[posY + j, posX + i];
+                        PositionPlayerMap00 = new Point((posX + i) - (i + DISTANCE_BORD_JOUEUR), (posY + j) - (j + DISTANCE_BORD_JOUEUR));
+                        playermap[j + DISTANCE_BORD_JOUEUR, i + DISTANCE_BORD_JOUEUR] = Game.map[posY + j, posX + i];
                     }
                 }
             }
+            #endregion
             else
             {
-                // Ligne supérieur centre
-                if (posY <= 11 && posX >= 11 && posX <= 39)
+                #region Ligne supérieur centre
+                if (posY <= DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posX >= DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posX <= Game.Width-DISTANCE_BORD_MAP_JOUEUR_CENTRE)
                 {
                     //ne corrige pas le (x)
-                    for (int i = -10; i <= 10; i++)
+                    for (int i = -DISTANCE_BORD_JOUEUR; i <= DISTANCE_BORD_JOUEUR; i++)
                     {
                         //corrige le (y)
-                        for (int j = 0; j <= 20; j++)
+                        for (int j = 0; j <= DISTANCE_VUE_JOUEUR; j++)
                         {
-                            PositionPlayerMap00 = new Point((posX + i) - (i + 10), j - j);
-                            playermap[j, i + 10] = Game.map[j, posX + i];
+                            PositionPlayerMap00 = new Point((posX + i) - (i + DISTANCE_BORD_JOUEUR), j - j);
+                            playermap[j, i + DISTANCE_BORD_JOUEUR] = Game.map[j, posX + i];
                         }
                     }
                 }
-                // Ligne inférieur centre
-                if (posY >= 39 && posX >= 11 && posX <= 39)
+                #endregion
+                #region Ligne inférieur centre
+                if (posY >= Game.Height-DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posX >= DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posX <= Game.Width-DISTANCE_BORD_MAP_JOUEUR_CENTRE)
                 {
                     //ne corrige pas le (x)
-                    for (int i = -10; i <= 10; i++)
+                    for (int i = -DISTANCE_BORD_JOUEUR; i <= DISTANCE_BORD_JOUEUR; i++)
                     {
                         //corrige le (y)
-                        for (int j = 30; j <= 50; j++)
+                        for (int j = Game.Height- DISTANCE_VUE_JOUEUR; j <= Game.Height; j++)
                         {
-                            PositionPlayerMap00 = new Point((posX + i) - (i + 10), (j - 1) - (j - 30));
-                            playermap[j - 30, i + 10] = Game.map[j - 1, posX + i];
+                            PositionPlayerMap00 = new Point((posX + i) - (i + DISTANCE_BORD_JOUEUR), (j - 1) - (j - (Game.Height- DISTANCE_VUE_JOUEUR)));
+                            playermap[j - (Game.Height- DISTANCE_VUE_JOUEUR), i + DISTANCE_BORD_JOUEUR] = Game.map[j - 1, posX + i];
                         }
                     }
                 }
-
-                // Colonne de gauche centre
-                if (posX <= 11 && posY >= 11 && posY <= 39)
+                #endregion
+                #region Colonne de gauche centre
+                if (posX <= DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posY >= DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posY <= Game.Height-DISTANCE_BORD_MAP_JOUEUR_CENTRE)
                 {
                     //corrige le (x)
-                    for (int i = 0; i <= 20; i++)
+                    for (int i = 0; i <= DISTANCE_VUE_JOUEUR; i++)
                     {
                         //ne corrige pas le (y)
-                        for (int j = -10; j <= 10; j++)
+                        for (int j = -DISTANCE_BORD_JOUEUR; j <= DISTANCE_BORD_JOUEUR; j++)
                         {
-                            PositionPlayerMap00 = new Point(i - i, (posY + j) - (j + 10));
-                            playermap[j + 10, i] = Game.map[posY + j, i];
+                            PositionPlayerMap00 = new Point(i - i, (posY + j) - (j + DISTANCE_BORD_JOUEUR));
+                            playermap[j + DISTANCE_BORD_JOUEUR, i] = Game.map[posY + j, i];
                         }
                     }
                 }
-
-                //coin supérieur gauche
-                if (posY < 11 && posX < 11)
+                #endregion
+                #region coin supérieur gauche
+                if (posY < DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posX < DISTANCE_BORD_MAP_JOUEUR_CENTRE)
                 {
-                    for (int i = 0; i <= 20; i++)
+                    for (int i = 0; i <= DISTANCE_VUE_JOUEUR; i++)
                     {
-                        for (int j = 0; j <= 20; j++)
+                        for (int j = 0; j <= DISTANCE_VUE_JOUEUR; j++)
                         {
                             PositionPlayerMap00 = new Point(i - i, j - j);
                             playermap[j, i] = Game.map[j, i];
                         }
                     }
                 }
-
-                //coin inférieur gauche
-                if (posY > 39 && posX < 11)
+                #endregion
+                #region coin inférieur gauche
+                if (posY > Game.Height-DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posX < DISTANCE_BORD_MAP_JOUEUR_CENTRE)
                 {
-                    for (int i = 0; i <= 20; i++)
+                    for (int i = 0; i <= DISTANCE_VUE_JOUEUR; i++)
                     {
-                        for (int j = 30; j <= 50; j++)
+                        for (int j = Game.Height- DISTANCE_VUE_JOUEUR; j <= Game.Height; j++)
                         {
-                            PositionPlayerMap00 = new Point(i - i, (j - 1) - (j - 30));
-                            playermap[j - 30, i] = Game.map[j - 1, i];
+                            PositionPlayerMap00 = new Point(i - i, (j - 1) - (j - (Game.Height- DISTANCE_VUE_JOUEUR)));
+                            playermap[j - (Game.Height- DISTANCE_VUE_JOUEUR), i] = Game.map[j - 1, i];
                         }
                     }
                 }
-                // Colonne de droite centre
-                if (posX >= 39 && posY >= 11 && posY <= 39)
+                #endregion
+                #region Colonne de droite centre
+                if (posX >= Game.Width-DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posY >= DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posY <= Game.Height-DISTANCE_BORD_MAP_JOUEUR_CENTRE)
                 {
                     //corrige le (x)
-                    for (int i = 30; i <= 50; i++)
+                    for (int i = Game.Width- DISTANCE_VUE_JOUEUR; i <= Game.Width; i++)
                     {
                         //ne corrige pas le (y)
-                        for (int j = -10; j <= 10; j++)
+                        for (int j = -DISTANCE_BORD_JOUEUR; j <= DISTANCE_BORD_JOUEUR; j++)
                         {
-                            PositionPlayerMap00 = new Point((i - 1) - (i - 30), (posY + j) - (j + 10));
-                            playermap[j + 10, i - 30] = Game.map[posY + j, i - 1];
+                            PositionPlayerMap00 = new Point((i - 1) - (i - (Game.Width- DISTANCE_VUE_JOUEUR)), (posY + j) - (j + DISTANCE_BORD_JOUEUR));
+                            playermap[j + DISTANCE_BORD_JOUEUR, i - (Game.Width- DISTANCE_VUE_JOUEUR)] = Game.map[posY + j, i - 1];
                         }
                     }
-
                 }
-                //coin supérieur droit
-                if (posY < 11 && posX > 39)
+                #endregion
+                #region coin supérieur droit
+                if (posY < DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posX > Game.Width-DISTANCE_BORD_MAP_JOUEUR_CENTRE)
                 {
-                    for (int i = 30; i <= 50; i++)
+                    for (int i = Game.Width-DISTANCE_VUE_JOUEUR; i <= Game.Width; i++)
                     {
-                        for (int j = 0; j <= 20; j++)
+                        for (int j = 0; j <= DISTANCE_VUE_JOUEUR; j++)
                         {
-                            PositionPlayerMap00 = new Point((i - 1) - (i - 30), j - j);
-                            playermap[j, i - 30] = Game.map[j, i - 1];
+                            PositionPlayerMap00 = new Point((i - 1) - (i - (Game.Width- DISTANCE_VUE_JOUEUR)), j - j);
+                            playermap[j, i - (Game.Width- DISTANCE_VUE_JOUEUR)] = Game.map[j, i - 1];
                         }
                     }
                 }
-                //coin inférieur droit
-                if (posY > 39 && posX > 39)
+                #endregion
+                #region coin inférieur droit
+                if (posY > Game.Height-DISTANCE_BORD_MAP_JOUEUR_CENTRE 
+                    && posX > Game.Width-DISTANCE_BORD_MAP_JOUEUR_CENTRE)
                 {
-                    for (int i = 30; i <= 50; i++)
+                    for (int i = Game.Width- DISTANCE_VUE_JOUEUR; i <= Game.Width; i++)
                     {
-                        for (int j = 30; j <= 50; j++)
+                        for (int j = Game.Height- DISTANCE_VUE_JOUEUR; j <= Game.Height; j++)
                         {
-                            PositionPlayerMap00 = new Point((i - 1) - (i - 30), (j - 1) - (j - 30));
-                            playermap[j - 30, i - 30] = Game.map[j - 1, i - 1];
+                            PositionPlayerMap00 = new Point((i - 1) - (i - (Game.Width- DISTANCE_VUE_JOUEUR)), (j - 1) - (j - (Game.Height- DISTANCE_VUE_JOUEUR)));
+                            playermap[j - (Game.Height- DISTANCE_VUE_JOUEUR), i - (Game.Width- DISTANCE_VUE_JOUEUR)] = Game.map[j - 1, i - 1];
                         }
                     }
                 }
-
+                #endregion
             }
             return playermap;
         }
