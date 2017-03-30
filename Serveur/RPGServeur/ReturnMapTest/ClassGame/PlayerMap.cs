@@ -13,6 +13,7 @@ namespace ReturnMapTest.ClassGame
 {
     class PlayerMap : PictureBox
     {
+        List<int> possibleToWalkOn = new List<int>();
         Image img;
         Point origin;
         const int HEIGHT = 21;
@@ -46,6 +47,8 @@ namespace ReturnMapTest.ClassGame
             base.Height = HEIGHT * TILESIZE;
             base.Width = HEIGHT * TILESIZE;
             base.Paint += PlayerMap_Paint;
+            possibleToWalkOn.Add(1);
+            possibleToWalkOn.Add(4);
         }
 
         public void UpdateMap()
@@ -66,18 +69,23 @@ namespace ReturnMapTest.ClassGame
                     switch (TileMap[j, i])
                     {
                         case 1:
+                            //peut aller
                             img = Properties.Resources.Grass;
                             break;
                         case 2:
+                            //ne peut pas aller
                             img = Properties.Resources.Water;
                             break;
                         case 3:
+                            //ne peut pas aller
                             img = Properties.Resources.Rock;
                             break;
                         case 4:
+                            //peut aller
                             img = Properties.Resources.GroundDirt;
                             break;
                         case 5:
+                            //ne peut pas aller
                             img = Properties.Resources.Tree;
                             break;
                         case 6:
@@ -115,33 +123,53 @@ namespace ReturnMapTest.ClassGame
 
         public void MoveUp(int idPlayer)
         {
-            if (baseGame.Players[idPlayer - 1].Position.Y > 1)
+            if (baseGame.Players[idPlayer - 1].Position.Y >= 1)
             {
-                baseGame.Players[idPlayer - 1].MoveUp();
+                if (possibleToWalkOn.Contains(BaseGame.GetTexture(new Point(
+                    BaseGame.Players[idPlayer - 1].Position.X,
+                    BaseGame.Players[idPlayer - 1].Position.Y - 1))))
+                {
+                    baseGame.Players[idPlayer - 1].MoveUp();
+                }
             }
         }
 
         public void MoveDown(int idPlayer)
         {
-            if (baseGame.Players[idPlayer - 1].Position.Y < baseGame.Game.Height - 1)
+            if (baseGame.Players[idPlayer - 1].Position.Y < baseGame.Game.Height -1)
             {
-                baseGame.Players[idPlayer - 1].MoveDown();
+                if (possibleToWalkOn.Contains(BaseGame.GetTexture(new Point(
+                    BaseGame.Players[idPlayer - 1].Position.X,
+                    BaseGame.Players[idPlayer - 1].Position.Y + 1))))
+                {
+                    baseGame.Players[idPlayer - 1].MoveDown();
+                }
             }
         }
 
         public void MoveRight(int idPlayer)
         {
-            if (baseGame.Players[idPlayer - 1].Position.X < BaseGame.Game.Width - 1)
+            if (baseGame.Players[idPlayer - 1].Position.X < BaseGame.Game.Width -1)
             {
-                baseGame.Players[idPlayer - 1].MoveRight();
+                if (possibleToWalkOn.Contains(BaseGame.GetTexture(new Point(
+                    BaseGame.Players[idPlayer - 1].Position.X + 1,
+                    BaseGame.Players[idPlayer - 1].Position.Y))))
+                {
+                    baseGame.Players[idPlayer - 1].MoveRight();
+                }
             }
         }
 
         public void MoveLeft(int idPlayer)
         {
-            if (baseGame.Players[idPlayer - 1].Position.X > 1)
+            if (baseGame.Players[idPlayer - 1].Position.X >= 1)
             {
-                baseGame.Players[idPlayer - 1].MoveLeft();
+                if (possibleToWalkOn.Contains(BaseGame.GetTexture(new Point(
+                    BaseGame.Players[idPlayer - 1].Position.X-1, 
+                    BaseGame.Players[idPlayer - 1].Position.Y))))
+                {
+                    baseGame.Players[idPlayer - 1].MoveLeft();
+                }
             }
         }
     }

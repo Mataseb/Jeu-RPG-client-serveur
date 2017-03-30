@@ -33,8 +33,8 @@
             this.btnMoveRight = new System.Windows.Forms.Button();
             this.btnMoveDown = new System.Windows.Forms.Button();
             this.lblCoord = new System.Windows.Forms.Label();
-            this.playerMap1 = new ReturnMapTest.ClassGame.PlayerMap();
             this.lblPlayermaporigin = new System.Windows.Forms.Label();
+            this.playerMap1 = new ReturnMapTest.ClassGame.PlayerMap();
             ((System.ComponentModel.ISupportInitialize)(this.playerMap1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,14 +87,6 @@
             this.lblCoord.TabIndex = 6;
             this.lblCoord.Text = "Coordonnées";
             // 
-            // playerMap1
-            // 
-            this.playerMap1.Location = new System.Drawing.Point(12, 12);
-            this.playerMap1.Name = "playerMap1";
-            this.playerMap1.Size = new System.Drawing.Size(420, 420);
-            this.playerMap1.TabIndex = 7;
-            this.playerMap1.TabStop = false;
-            // 
             // lblPlayermaporigin
             // 
             this.lblPlayermaporigin.AutoSize = true;
@@ -103,6 +95,14 @@
             this.lblPlayermaporigin.Size = new System.Drawing.Size(86, 13);
             this.lblPlayermaporigin.TabIndex = 8;
             this.lblPlayermaporigin.Text = "origin player map";
+            // 
+            // playerMap1
+            // 
+            this.playerMap1.Location = new System.Drawing.Point(12, 12);
+            this.playerMap1.Name = "playerMap1";
+            this.playerMap1.Size = new System.Drawing.Size(420, 420);
+            this.playerMap1.TabIndex = 7;
+            this.playerMap1.TabStop = false;
             // 
             // Form1
             // 
