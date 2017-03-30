@@ -48,40 +48,59 @@ namespace ReturnMapTest
         {
             playerMap1.MoveUp(1);
             playerMap1.UpdateMap();
-            lblCoord.Text = playerMap1.BaseGame.Players[0].Position.ToString();
-            lblPlayermaporigin.Text = playerMap1.BaseGame.PositionPlayerMap00.X + " ; " + playerMap1.BaseGame.PositionPlayerMap00.Y;
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
             playerMap1.UpdateMap();
         }
-       
+
         private void btnMoveDown_Click(object sender, EventArgs e)
         {
             playerMap1.MoveDown(1);
             playerMap1.UpdateMap();
-            lblPlayermaporigin.Text = playerMap1.BaseGame.PositionPlayerMap00.X + " ; " + playerMap1.BaseGame.PositionPlayerMap00.Y;
-
-            lblCoord.Text = playerMap1.BaseGame.Players[0].Position.ToString();
         }
 
         private void btnMoveLeft_Click(object sender, EventArgs e)
         {
             playerMap1.MoveLeft(1);
             playerMap1.UpdateMap();
-            lblPlayermaporigin.Text = playerMap1.BaseGame.PositionPlayerMap00.X + " ; " + playerMap1.BaseGame.PositionPlayerMap00.Y;
-
-            lblCoord.Text = playerMap1.BaseGame.Players[0].Position.ToString();
         }
 
         private void btnMoveRight_Click(object sender, EventArgs e)
         {
             playerMap1.MoveRight(1);
             playerMap1.UpdateMap();
-            lblPlayermaporigin.Text = playerMap1.BaseGame.PositionPlayerMap00.X + " ; " + playerMap1.BaseGame.PositionPlayerMap00.Y;
+        }
 
-            lblCoord.Text = playerMap1.BaseGame.Players[0].Position.ToString();
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Left || keyData == Keys.A)
+            {
+                playerMap1.MoveLeft(1);
+                playerMap1.UpdateMap();
+                return true;
+            }
+            if (keyData == Keys.Right || keyData == Keys.D)
+            {
+                playerMap1.MoveRight(1);
+                playerMap1.UpdateMap();
+                return true;
+            }
+            if (keyData == Keys.Up || keyData == Keys.W)
+            {
+                playerMap1.MoveUp(1);
+                playerMap1.UpdateMap();
+                return true;
+            }
+            if (keyData == Keys.Down || keyData == Keys.S)
+            {
+                playerMap1.MoveDown(1);
+                playerMap1.UpdateMap();
+                return true;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

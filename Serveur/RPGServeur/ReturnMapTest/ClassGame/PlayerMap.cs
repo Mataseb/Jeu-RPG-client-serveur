@@ -18,7 +18,7 @@ namespace ReturnMapTest.ClassGame
         Point origin;
         const int HEIGHT = 21;
         const int WIDTH = 21;
-        public const int TILESIZE = 20;
+        public const int TILESIZE = 30;
         int[,] map;
 
         BaseGame baseGame;
@@ -88,9 +88,6 @@ namespace ReturnMapTest.ClassGame
                             //ne peut pas aller
                             img = Properties.Resources.Tree;
                             break;
-                        case 6:
-                            img = Properties.Resources.Link;
-                            break;
                         default:
                             img = Properties.Resources.Ground;
                             break;
@@ -101,7 +98,7 @@ namespace ReturnMapTest.ClassGame
                     foreach (Player player in BaseGame.Players)
                     {
                         
-                        e.Graphics.DrawImage(Properties.Resources.Link, new Rectangle(BaseGame.getPositionPlayerInPlayerMap(player).X * TILESIZE, BaseGame.getPositionPlayerInPlayerMap(player).Y * TILESIZE, TILESIZE, TILESIZE));
+                        e.Graphics.DrawImage(Properties.Resources.link2, new Rectangle(BaseGame.getPositionPlayerInPlayerMap(player).X * TILESIZE, BaseGame.getPositionPlayerInPlayerMap(player).Y * TILESIZE, TILESIZE, TILESIZE));
                         //e.Graphics.DrawImage(Properties.Resources.Link, BaseGame.getPositionPlayerInPlayerMap(player));
                     }
                 }
