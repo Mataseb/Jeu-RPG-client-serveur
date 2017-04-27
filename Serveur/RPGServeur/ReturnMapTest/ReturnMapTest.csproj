@@ -67,19 +67,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -90,31 +90,40 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\GroundDirt.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\realgrass_background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Rock.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tex04.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tree-original.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Ground.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Link.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\linkLeVrai.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\link2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouepath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaraisWater.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\muraille.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OceanWater.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reverselink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\road.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BoueRoad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grass.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

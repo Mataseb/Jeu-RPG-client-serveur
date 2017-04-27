@@ -34,15 +34,15 @@
             // 
             // playerMap1
             // 
-            this.playerMap1.Location = new System.Drawing.Point(3, 5);
+            this.playerMap1.Location = new System.Drawing.Point(-4, -3);
             this.playerMap1.Name = "playerMap1";
-            this.playerMap1.Size = new System.Drawing.Size(630, 630);
+            this.playerMap1.Size = new System.Drawing.Size(603, 603);
             this.playerMap1.TabIndex = 0;
             this.playerMap1.TabStop = false;
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(638, 639);
+            this.ClientSize = new System.Drawing.Size(595, 597);
             this.Controls.Add(this.playerMap1);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load_1);

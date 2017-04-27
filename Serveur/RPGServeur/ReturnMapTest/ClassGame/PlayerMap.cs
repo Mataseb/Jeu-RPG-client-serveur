@@ -16,9 +16,9 @@ namespace ReturnMapTest.ClassGame
         List<int> possibleToWalkOn = new List<int>();
         Image img;
         Point origin;
-        const int HEIGHT = 21;
-        const int WIDTH = 21;
-        public const int TILESIZE = 30;
+        const int HEIGHT = 15;
+        const int WIDTH = 15;
+        public const int TILESIZE = 40;
         int[,] map;
 
         BaseGame baseGame;
@@ -40,15 +40,17 @@ namespace ReturnMapTest.ClassGame
         }
 
         public PlayerMap() : base()
-        {
+        {   
             map = new int[WIDTH, HEIGHT];
             baseGame = new BaseGame();
             baseGame.AddPlayer(1, "Player 1", IPAddress.Parse(GetLocalIPAddress()));
             base.Height = HEIGHT * TILESIZE;
             base.Width = HEIGHT * TILESIZE;
             base.Paint += PlayerMap_Paint;
-            possibleToWalkOn.Add(1);
-            possibleToWalkOn.Add(4);
+            possibleToWalkOn.Add(4);//herbe
+            possibleToWalkOn.Add(5);//sable
+            possibleToWalkOn.Add(6);//chemin de pierre
+            possibleToWalkOn.Add(7);//chemin de boue
         }
 
         public void UpdateMap()
@@ -65,28 +67,39 @@ namespace ReturnMapTest.ClassGame
             {
                 for (int j = 0; j < HEIGHT; j++)
                 {
-                    
                     switch (TileMap[j, i])
                     {
                         case 1:
-                            //peut aller
-                            img = Properties.Resources.Grass;
+                            // ne peut aller
+                            img = Properties.Resources.OceanWater;
                             break;
                         case 2:
                             //ne peut pas aller
-                            img = Properties.Resources.Water;
+                            img = Properties.Resources.MaraisWater;
                             break;
                         case 3:
                             //ne peut pas aller
-                            img = Properties.Resources.Rock;
+                            img = Properties.Resources.trees;
                             break;
                         case 4:
                             //peut aller
-                            img = Properties.Resources.GroundDirt;
+                            img = Properties.Resources.grass;
                             break;
                         case 5:
+                            //peut aller
+                            img = Properties.Resources.sand;
+                            break;
+                        case 6:
+                            //peut aller
+                            img = Properties.Resources.road;
+                            break;
+                        case 7:
+                            //peut aller
+                            img = Properties.Resources.BoueRoad;
+                            break;
+                        case 8:
                             //ne peut pas aller
-                            img = Properties.Resources.Tree;
+                            img = Properties.Resources.muraille;
                             break;
                         default:
                             img = Properties.Resources.Ground;
@@ -98,8 +111,7 @@ namespace ReturnMapTest.ClassGame
                     foreach (Player player in BaseGame.Players)
                     {
                         
-                        e.Graphics.DrawImage(Properties.Resources.link2, new Rectangle(BaseGame.getPositionPlayerInPlayerMap(player).X * TILESIZE, BaseGame.getPositionPlayerInPlayerMap(player).Y * TILESIZE, TILESIZE, TILESIZE));
-                        //e.Graphics.DrawImage(Properties.Resources.Link, BaseGame.getPositionPlayerInPlayerMap(player));
+                        e.Graphics.DrawImage(Properties.Resources.link, new Rectangle(BaseGame.getPositionPlayerInPlayerMap(player).X * TILESIZE, BaseGame.getPositionPlayerInPlayerMap(player).Y * TILESIZE, TILESIZE, TILESIZE));
                     }
                 }
             }

@@ -17,7 +17,7 @@ namespace RPGServeur
         Point positionPlayerMap00;
         List<int> possibleToWalkOn = new List<int>();
         //Distance en cases entre le joueur et le bord de sa vue
-        const int DISTANCE_BORD_JOUEUR = 10;
+        const int DISTANCE_BORD_JOUEUR = 7;
 
         //Distance en cases entre le joueur au centre de sa vue et le bord de sa vue
         const int DISTANCE_BORD_MAP_JOUEUR_CENTRE = DISTANCE_BORD_JOUEUR + 1;
@@ -29,7 +29,14 @@ namespace RPGServeur
             map = new Map();
             players = new List<Player>();
             spawns = new List<Point>();
-            spawns.Add(new Point(5, 5));
+            spawns.Add(new Point(2, 50));
+            spawns.Add(new Point(51, 49));
+            spawns.Add(new Point(51, 72));
+            spawns.Add(new Point(76, 4));
+            spawns.Add(new Point(71, 3));
+            spawns.Add(new Point(73, 21));
+            spawns.Add(new Point(2, 2));
+            spawns.Add(new Point(29, 27));
         }
 
         public Map Game
@@ -272,31 +279,5 @@ namespace RPGServeur
         {
             return Game.map[coordonnees.Y, coordonnees.X];
         }
-
-        /*public List<Point> PlayerCanGoTo(Point PositionPlayer)
-        {
-            List<Point> points = new List<Point>();
-            //a droite
-            if (possibleToWalkOn.Contains(GetTexture(new Point(PositionPlayer.X + 1, PositionPlayer.Y))))
-            {
-                points.Add(new Point(PositionPlayer.X + 1, PositionPlayer.Y));
-            }
-            //à gauche
-            if (possibleToWalkOn.Contains(GetTexture(new Point(PositionPlayer.X - 1, PositionPlayer.Y))))
-            {
-                points.Add(new Point(PositionPlayer.X - 1, PositionPlayer.Y));
-            }
-            //en bas
-            if (possibleToWalkOn.Contains(GetTexture(new Point(PositionPlayer.X, PositionPlayer.Y + 1))))
-            {
-                points.Add(new Point(PositionPlayer.X, PositionPlayer.Y + 1));
-            }
-            //en haut
-            if (possibleToWalkOn.Contains(GetTexture(new Point(PositionPlayer.X, PositionPlayer.Y - 1))))
-            {
-                points.Add(new Point(PositionPlayer.X, PositionPlayer.Y - 1));
-            }
-            return points;
-        }*/
     }
 }

@@ -63,9 +63,19 @@ namespace ReturnMapTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Grass {
+        internal static System.Drawing.Bitmap BoueRoad {
             get {
-                object obj = ResourceManager.GetObject("Grass", resourceCulture);
+                object obj = ResourceManager.GetObject("BoueRoad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap grass {
+            get {
+                object obj = ResourceManager.GetObject("grass", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +93,9 @@ namespace ReturnMapTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap GroundDirt {
+        internal static System.Drawing.Bitmap link {
             get {
-                object obj = ResourceManager.GetObject("GroundDirt", resourceCulture);
+                object obj = ResourceManager.GetObject("link", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +103,9 @@ namespace ReturnMapTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Link {
+        internal static System.Drawing.Bitmap MaraisWater {
             get {
-                object obj = ResourceManager.GetObject("Link", resourceCulture);
+                object obj = ResourceManager.GetObject("MaraisWater", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +113,9 @@ namespace ReturnMapTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap link2 {
+        internal static System.Drawing.Bitmap muraille {
             get {
-                object obj = ResourceManager.GetObject("link2", resourceCulture);
+                object obj = ResourceManager.GetObject("muraille", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +123,9 @@ namespace ReturnMapTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Rock {
+        internal static System.Drawing.Bitmap OceanWater {
             get {
-                object obj = ResourceManager.GetObject("Rock", resourceCulture);
+                object obj = ResourceManager.GetObject("OceanWater", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +133,9 @@ namespace ReturnMapTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tree {
+        internal static System.Drawing.Bitmap reverselink {
             get {
-                object obj = ResourceManager.GetObject("Tree", resourceCulture);
+                object obj = ResourceManager.GetObject("reverselink", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +143,29 @@ namespace ReturnMapTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Water {
+        internal static System.Drawing.Bitmap road {
             get {
-                object obj = ResourceManager.GetObject("Water", resourceCulture);
+                object obj = ResourceManager.GetObject("road", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sand {
+            get {
+                object obj = ResourceManager.GetObject("sand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trees {
+            get {
+                object obj = ResourceManager.GetObject("trees", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
