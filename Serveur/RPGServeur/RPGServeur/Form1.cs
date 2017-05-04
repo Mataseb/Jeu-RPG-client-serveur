@@ -18,6 +18,7 @@ namespace RPGServeur
         private static Thread thEcoute;
         bool thEcouteWork = true;
         string msg;
+        List<Socket> sockets;
 
         public Form1()
         {
@@ -47,6 +48,7 @@ namespace RPGServeur
             lblIp.Text = "Adresse du serveur : " + GetLocalIPAddress();
             thEcoute = new Thread(new ThreadStart(Ecouter));
             thEcoute.Start();
+            sockets = new List<Socket>();
         }
 
         /*private void Ecouter()
@@ -74,7 +76,10 @@ namespace RPGServeur
 
             while (thEcouteWork)
             {
+                this.Invoke((MethodInvoker)(() => listBox1.Items.Add("coucou"))); // comment modifier un composant sur le thread principal depuis un autre thread
+
                 Socket sock = listener.AcceptSocket();
+                sockets.Add(sock);
                 MessageBox.Show("Connection accepted from " + sock.RemoteEndPoint);
                 countTransaction++;
 

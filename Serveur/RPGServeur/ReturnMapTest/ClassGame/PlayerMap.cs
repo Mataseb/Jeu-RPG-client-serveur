@@ -25,6 +25,10 @@ namespace ReturnMapTest.ClassGame
 
         public int[,] TileMap
         {
+            set
+            {
+                map = value;
+            }
             get
             {
                 return map;
@@ -117,6 +121,10 @@ namespace ReturnMapTest.ClassGame
             }
         }
 
+        /// <summary>
+        /// Récupère l'adresse ip local
+        /// </summary>
+        /// <returns>IP en string</returns>
         public static string GetLocalIPAddress()
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
