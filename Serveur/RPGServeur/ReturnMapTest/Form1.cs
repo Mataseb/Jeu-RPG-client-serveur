@@ -43,24 +43,14 @@ namespace ReturnMapTest
             throw new Exception("Local IP Address Not Found!");
         }
 
-        private void btnActiver_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void MapRequest()
         {
             try
             {
                 tcpclnt = new TcpClient();
-                //Console.WriteLine("Connecting.....");
 
                 tcpclnt.Connect("172.21.5.99", 8001);
-                // use the ipaddress as in the server program
-
-                //Console.WriteLine("Connected");
-                //Console.Write("Enter the string to be transmitted : ");
-
+                
                 String str = Console.ReadLine();
                 stm = tcpclnt.GetStream();
 

@@ -74,7 +74,7 @@ namespace ReturnMapTest.ClassGame
                     switch (TileMap[j, i])
                     {
                         case 1:
-                            // ne peut aller
+                            //ne peut pas aller
                             img = Properties.Resources.OceanWater;
                             break;
                         case 2:
