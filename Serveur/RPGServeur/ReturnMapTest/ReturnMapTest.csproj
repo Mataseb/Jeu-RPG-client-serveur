@@ -93,9 +93,6 @@
     <None Include="Resources\Ground.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\link2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bouepath.png" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +121,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\grass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaraisWater - Copie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
