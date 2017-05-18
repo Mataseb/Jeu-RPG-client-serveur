@@ -48,6 +48,9 @@ namespace ReturnMapTest.ClassGame
             map = new int[WIDTH, HEIGHT];
             baseGame = new BaseGame();
             baseGame.AddPlayer(1, "Player 1", IPAddress.Parse(GetLocalIPAddress()));
+            baseGame.AddPlayer(2, "Player 2", IPAddress.Parse(GetLocalIPAddress()));
+            baseGame.AddPlayer(3, "Player 3", IPAddress.Parse(GetLocalIPAddress()));
+            baseGame.AddPlayer(4, "Player 4", IPAddress.Parse(GetLocalIPAddress()));
             base.Height = HEIGHT * TILESIZE;
             base.Width = HEIGHT * TILESIZE;
             base.Paint += PlayerMap_Paint;
@@ -59,7 +62,7 @@ namespace ReturnMapTest.ClassGame
 
         public void UpdateMap()
         {
-            map = baseGame.PlayerMap(1);
+            map = baseGame.PlayerMap(baseGame.PlayerSelected);
             this.Invalidate();
         }
         //Dessine la map

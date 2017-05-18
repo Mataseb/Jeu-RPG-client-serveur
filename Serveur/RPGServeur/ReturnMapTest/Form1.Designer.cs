@@ -28,25 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.playerMap1 = new ReturnMapTest.ClassGame.PlayerMap();
-            ((System.ComponentModel.ISupportInitialize)(this.playerMap1)).BeginInit();
+            this.btnPlayer1 = new System.Windows.Forms.Button();
+            this.btnPlayer2 = new System.Windows.Forms.Button();
+            this.btnPlayer3 = new System.Windows.Forms.Button();
+            this.btnPlayer4 = new System.Windows.Forms.Button();
+            this.playerMap2 = new ReturnMapTest.ClassGame.PlayerMap();
+            ((System.ComponentModel.ISupportInitialize)(this.playerMap2)).BeginInit();
             this.SuspendLayout();
             // 
-            // playerMap1
+            // btnPlayer1
             // 
-            this.playerMap1.Location = new System.Drawing.Point(-4, -3);
-            this.playerMap1.Name = "playerMap1";
-            this.playerMap1.Size = new System.Drawing.Size(603, 603);
-            this.playerMap1.TabIndex = 0;
-            this.playerMap1.TabStop = false;
+            this.btnPlayer1.Location = new System.Drawing.Point(634, 33);
+            this.btnPlayer1.Name = "btnPlayer1";
+            this.btnPlayer1.Size = new System.Drawing.Size(75, 40);
+            this.btnPlayer1.TabIndex = 6;
+            this.btnPlayer1.Text = "Joueur 1";
+            this.btnPlayer1.UseVisualStyleBackColor = true;
+            this.btnPlayer1.Click += new System.EventHandler(this.btnPlayer1_Click);
+            // 
+            // btnPlayer2
+            // 
+            this.btnPlayer2.Location = new System.Drawing.Point(715, 33);
+            this.btnPlayer2.Name = "btnPlayer2";
+            this.btnPlayer2.Size = new System.Drawing.Size(75, 40);
+            this.btnPlayer2.TabIndex = 7;
+            this.btnPlayer2.Text = "Joueur 2";
+            this.btnPlayer2.UseVisualStyleBackColor = true;
+            this.btnPlayer2.Click += new System.EventHandler(this.btnPlayer2_Click);
+            // 
+            // btnPlayer3
+            // 
+            this.btnPlayer3.Location = new System.Drawing.Point(634, 77);
+            this.btnPlayer3.Name = "btnPlayer3";
+            this.btnPlayer3.Size = new System.Drawing.Size(75, 40);
+            this.btnPlayer3.TabIndex = 8;
+            this.btnPlayer3.Text = "Joueur 3";
+            this.btnPlayer3.UseVisualStyleBackColor = true;
+            this.btnPlayer3.Click += new System.EventHandler(this.btnPlayer3_Click);
+            // 
+            // btnPlayer4
+            // 
+            this.btnPlayer4.Location = new System.Drawing.Point(715, 77);
+            this.btnPlayer4.Name = "btnPlayer4";
+            this.btnPlayer4.Size = new System.Drawing.Size(75, 40);
+            this.btnPlayer4.TabIndex = 9;
+            this.btnPlayer4.Text = "Joueur 4";
+            this.btnPlayer4.UseVisualStyleBackColor = true;
+            this.btnPlayer4.Click += new System.EventHandler(this.btnPlayer4_Click);
+            // 
+            // playerMap2
+            // 
+            this.playerMap2.Location = new System.Drawing.Point(4, 3);
+            this.playerMap2.Name = "playerMap2";
+            this.playerMap2.Size = new System.Drawing.Size(600, 600);
+            this.playerMap2.TabIndex = 15;
+            this.playerMap2.TabStop = false;
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(595, 597);
-            this.Controls.Add(this.playerMap1);
+            this.ClientSize = new System.Drawing.Size(817, 597);
+            this.Controls.Add(this.playerMap2);
+            this.Controls.Add(this.btnPlayer4);
+            this.Controls.Add(this.btnPlayer3);
+            this.Controls.Add(this.btnPlayer2);
+            this.Controls.Add(this.btnPlayer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.playerMap1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerMap2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -54,6 +104,11 @@
         #endregion
 
         private ClassGame.PlayerMap playerMap1;
+        private System.Windows.Forms.Button btnPlayer1;
+        private System.Windows.Forms.Button btnPlayer2;
+        private System.Windows.Forms.Button btnPlayer3;
+        private System.Windows.Forms.Button btnPlayer4;
+        private ClassGame.PlayerMap playerMap2;
     }
 }
 

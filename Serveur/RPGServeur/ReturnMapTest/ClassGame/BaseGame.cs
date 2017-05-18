@@ -24,19 +24,25 @@ namespace RPGServeur
 
         //vue joueur
         const int DISTANCE_VUE_JOUEUR = 2 * DISTANCE_BORD_JOUEUR;
+
+        private int playerSelected = 1;
+
         public BaseGame()
         {
             map = new Map();
             players = new List<Player>();
             spawns = new List<Point>();
-            spawns.Add(new Point(2, 50));
-            spawns.Add(new Point(51, 49));
-            spawns.Add(new Point(51, 72));
-            spawns.Add(new Point(76, 4));
-            spawns.Add(new Point(71, 3));
-            spawns.Add(new Point(73, 21));
-            spawns.Add(new Point(2, 2));
-            spawns.Add(new Point(29, 27));
+            //spawns.Add(new Point(2, 50));
+            //spawns.Add(new Point(51, 49));
+            spawns.Add(new Point(49, 72));
+            spawns.Add(new Point(50, 72));
+            spawns.Add(new Point(49, 73));
+            spawns.Add(new Point(50, 73));
+            //spawns.Add(new Point(76, 4));
+            //spawns.Add(new Point(71, 3));
+            //spawns.Add(new Point(73, 21));
+            //spawns.Add(new Point(2, 2));
+            //spawns.Add(new Point(29, 27));
         }
 
         public Map Game
@@ -73,6 +79,19 @@ namespace RPGServeur
             }
         }
 
+        public int PlayerSelected
+        {
+            get
+            {
+                return playerSelected;
+            }
+
+            set
+            {
+                playerSelected = value;
+            }
+        }
+
         /// <summary>
         /// Ajoute un joueur dans le jeu
         /// </summary>
@@ -84,7 +103,7 @@ namespace RPGServeur
             {
                 count++;
             }
-            players.Add(new Player(count + 1, username, ip, spawns[rdn.Next(0, spawns.Count())]));
+            players.Add(new Player(count + 1, username, ip, spawns[count]));
             map.Players = players;
         }
 

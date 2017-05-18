@@ -25,11 +25,6 @@ namespace ReturnMapTest
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            game = new BaseGame();
-        }
-
         public static string GetLocalIPAddress()
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
@@ -50,7 +45,7 @@ namespace ReturnMapTest
                 tcpclnt = new TcpClient();
 
                 tcpclnt.Connect("172.21.5.99", 8001);
-                
+
                 String str = Console.ReadLine();
                 stm = tcpclnt.GetStream();
 
@@ -77,62 +72,86 @@ namespace ReturnMapTest
 
         private void btnMovetop_Click(object sender, EventArgs e)
         {
-            playerMap1.MoveUp(1);
-            playerMap1.UpdateMap();
+            playerMap2.MoveUp(playerMap2.BaseGame.PlayerSelected);
+            playerMap2.UpdateMap();
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-
-            playerMap1.UpdateMap();
+            game = new BaseGame();
+            playerMap2.UpdateMap();       
         }
 
         private void btnMoveDown_Click(object sender, EventArgs e)
         {
-            playerMap1.MoveDown(1);
-            playerMap1.UpdateMap();
+            playerMap2.MoveDown(playerMap2.BaseGame.PlayerSelected);
+            playerMap2.UpdateMap();
         }
 
         private void btnMoveLeft_Click(object sender, EventArgs e)
         {
-            playerMap1.MoveLeft(1);
-            playerMap1.UpdateMap();
+            playerMap2.MoveLeft(playerMap2.BaseGame.PlayerSelected);
+            playerMap2.UpdateMap();
         }
 
         private void btnMoveRight_Click(object sender, EventArgs e)
         {
-            playerMap1.MoveRight(1);
-            playerMap1.UpdateMap();
+            playerMap2.MoveRight(playerMap2.BaseGame.PlayerSelected);
+            playerMap2.UpdateMap();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Left || keyData == Keys.A)
             {
-                playerMap1.MoveLeft(1);
-                playerMap1.UpdateMap();
+                playerMap2.MoveLeft(playerMap2.BaseGame.PlayerSelected);
+                playerMap2.UpdateMap();
                 return true;
             }
             if (keyData == Keys.Right || keyData == Keys.D)
             {
-                playerMap1.MoveRight(1);
-                playerMap1.UpdateMap();
+                playerMap2.MoveRight(playerMap2.BaseGame.PlayerSelected);
+                playerMap2.UpdateMap();
                 return true;
             }
             if (keyData == Keys.Up || keyData == Keys.W)
             {
-                playerMap1.MoveUp(1);
-                playerMap1.UpdateMap();
+                playerMap2.MoveUp(playerMap2.BaseGame.PlayerSelected);
+                playerMap2.UpdateMap();
                 return true;
             }
             if (keyData == Keys.Down || keyData == Keys.S)
             {
-                playerMap1.MoveDown(1);
-                playerMap1.UpdateMap();
+                playerMap2.MoveDown(playerMap2.BaseGame.PlayerSelected);
+                playerMap2.UpdateMap();
                 return true;
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void btnPlayer1_Click(object sender, EventArgs e)
+        {
+            playerMap2.BaseGame.PlayerSelected = 1;
+            playerMap2.UpdateMap();
+        }
+
+        private void btnPlayer2_Click(object sender, EventArgs e)
+        {
+            playerMap2.BaseGame.PlayerSelected = 2;
+            playerMap2.UpdateMap();
+        }
+
+        private void btnPlayer3_Click(object sender, EventArgs e)
+        {
+            playerMap2.BaseGame.PlayerSelected = 3;
+            playerMap2.UpdateMap();
+        }
+
+        private void btnPlayer4_Click(object sender, EventArgs e)
+        {
+            playerMap2.BaseGame.PlayerSelected = 4;
+            playerMap2.UpdateMap();
         }
     }
 }
