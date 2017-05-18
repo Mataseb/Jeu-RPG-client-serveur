@@ -23,6 +23,7 @@ namespace ReturnMapTest.ClassGame
 
         BaseGame baseGame;
 
+        #region propriétés
         public int[,] TileMap
         {
             set
@@ -43,6 +44,8 @@ namespace ReturnMapTest.ClassGame
             }
         }
 
+        #endregion
+
         public PlayerMap() : base()
         {   
             map = new int[WIDTH, HEIGHT];
@@ -60,6 +63,9 @@ namespace ReturnMapTest.ClassGame
             possibleToWalkOn.Add(7);//chemin de boue
         }
 
+        /// <summary>
+        /// Met à jour la vue du joueur
+        /// </summary>
         public void UpdateMap()
         {
             map = baseGame.PlayerMap(baseGame.PlayerSelected);
@@ -141,6 +147,7 @@ namespace ReturnMapTest.ClassGame
             throw new Exception("Local IP Address Not Found!");
         }
 
+        #region déplacements de la vue en fonctiond des déplacements du joueur
         public void MoveUp(int idPlayer)
         {
             if (baseGame.Players[idPlayer - 1].Position.Y >= 1)
@@ -192,5 +199,6 @@ namespace ReturnMapTest.ClassGame
                 }
             }
         }
+        #endregion
     }
 }

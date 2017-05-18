@@ -38,9 +38,9 @@
             // 
             // btnPlayer1
             // 
-            this.btnPlayer1.Location = new System.Drawing.Point(634, 33);
+            this.btnPlayer1.Location = new System.Drawing.Point(5, 609);
             this.btnPlayer1.Name = "btnPlayer1";
-            this.btnPlayer1.Size = new System.Drawing.Size(75, 40);
+            this.btnPlayer1.Size = new System.Drawing.Size(145, 40);
             this.btnPlayer1.TabIndex = 6;
             this.btnPlayer1.Text = "Joueur 1";
             this.btnPlayer1.UseVisualStyleBackColor = true;
@@ -48,9 +48,9 @@
             // 
             // btnPlayer2
             // 
-            this.btnPlayer2.Location = new System.Drawing.Point(715, 33);
+            this.btnPlayer2.Location = new System.Drawing.Point(156, 609);
             this.btnPlayer2.Name = "btnPlayer2";
-            this.btnPlayer2.Size = new System.Drawing.Size(75, 40);
+            this.btnPlayer2.Size = new System.Drawing.Size(145, 40);
             this.btnPlayer2.TabIndex = 7;
             this.btnPlayer2.Text = "Joueur 2";
             this.btnPlayer2.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             // 
             // btnPlayer3
             // 
-            this.btnPlayer3.Location = new System.Drawing.Point(634, 77);
+            this.btnPlayer3.Location = new System.Drawing.Point(307, 609);
             this.btnPlayer3.Name = "btnPlayer3";
-            this.btnPlayer3.Size = new System.Drawing.Size(75, 40);
+            this.btnPlayer3.Size = new System.Drawing.Size(145, 40);
             this.btnPlayer3.TabIndex = 8;
             this.btnPlayer3.Text = "Joueur 3";
             this.btnPlayer3.UseVisualStyleBackColor = true;
@@ -68,9 +68,9 @@
             // 
             // btnPlayer4
             // 
-            this.btnPlayer4.Location = new System.Drawing.Point(715, 77);
+            this.btnPlayer4.Location = new System.Drawing.Point(458, 609);
             this.btnPlayer4.Name = "btnPlayer4";
-            this.btnPlayer4.Size = new System.Drawing.Size(75, 40);
+            this.btnPlayer4.Size = new System.Drawing.Size(145, 40);
             this.btnPlayer4.TabIndex = 9;
             this.btnPlayer4.Text = "Joueur 4";
             this.btnPlayer4.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(817, 597);
+            this.ClientSize = new System.Drawing.Size(608, 654);
             this.Controls.Add(this.playerMap2);
             this.Controls.Add(this.btnPlayer4);
             this.Controls.Add(this.btnPlayer3);

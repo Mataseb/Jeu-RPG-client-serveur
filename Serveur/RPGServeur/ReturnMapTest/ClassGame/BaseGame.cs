@@ -45,6 +45,7 @@ namespace RPGServeur
             //spawns.Add(new Point(29, 27));
         }
 
+        #region propriétés
         public Map Game
         {
             get
@@ -91,6 +92,7 @@ namespace RPGServeur
                 playerSelected = value;
             }
         }
+        #endregion
 
         /// <summary>
         /// Ajoute un joueur dans le jeu
@@ -106,15 +108,12 @@ namespace RPGServeur
             players.Add(new Player(count + 1, username, ip, spawns[count]));
             map.Players = players;
         }
-
+        
         /// <summary>
-        /// Suprimme un joueur du jeu
+        /// Obtient la position du joueur par rapport à sa vue
         /// </summary>
-        public void DeletePlayer(int idPlayer)
-        {
-
-        }
-
+        /// <param name="player"></param>
+        /// <returns></returns>
         public Point getPositionPlayerInPlayerMap(Player player)
         {
             int PositionYPlayerInPlayerMap = 0;
@@ -294,6 +293,12 @@ namespace RPGServeur
             }
             return playermap;
         }
+
+        /// <summary>
+        /// Obtient le type de texture pour une position de la map donnée
+        /// </summary>
+        /// <param name="coordonnees"></param>
+        /// <returns></returns>
         public int GetTexture(Point coordonnees)
         {
             return Game.map[coordonnees.Y, coordonnees.X];

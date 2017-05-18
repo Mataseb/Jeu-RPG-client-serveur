@@ -16,7 +16,6 @@ namespace ReturnMapTest
 {
     public partial class Form1 : Form
     {
-        BaseGame game;
         Stream stm;
         TcpClient tcpclnt;
 
@@ -69,37 +68,23 @@ namespace ReturnMapTest
                 Console.WriteLine("Error..... " + e.StackTrace);
             }
         }
-
-        private void btnMovetop_Click(object sender, EventArgs e)
-        {
-            playerMap2.MoveUp(playerMap2.BaseGame.PlayerSelected);
-            playerMap2.UpdateMap();
-        }
-
+        /// <summary>
+        /// Crée le modèle et affiche la vue
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            game = new BaseGame();
-            playerMap2.UpdateMap();       
-        }
-
-        private void btnMoveDown_Click(object sender, EventArgs e)
-        {
-            playerMap2.MoveDown(playerMap2.BaseGame.PlayerSelected);
             playerMap2.UpdateMap();
         }
+        
 
-        private void btnMoveLeft_Click(object sender, EventArgs e)
-        {
-            playerMap2.MoveLeft(playerMap2.BaseGame.PlayerSelected);
-            playerMap2.UpdateMap();
-        }
-
-        private void btnMoveRight_Click(object sender, EventArgs e)
-        {
-            playerMap2.MoveRight(playerMap2.BaseGame.PlayerSelected);
-            playerMap2.UpdateMap();
-        }
-
+        /// <summary>
+        /// Si la touche du clavier pressée est une touche prévue, déplace le joueur controlé
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Left || keyData == Keys.A)
@@ -130,6 +115,7 @@ namespace ReturnMapTest
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        #region selection joueurs
         private void btnPlayer1_Click(object sender, EventArgs e)
         {
             playerMap2.BaseGame.PlayerSelected = 1;
@@ -153,5 +139,6 @@ namespace ReturnMapTest
             playerMap2.BaseGame.PlayerSelected = 4;
             playerMap2.UpdateMap();
         }
+        #endregion
     }
 }

@@ -15,6 +15,7 @@ namespace RPGServeur
         private IPAddress _ip;
         private Point _position;
 
+        #region propriétés
         public int Id
         {
             get
@@ -66,6 +67,7 @@ namespace RPGServeur
                 _position = value;
             }
         }
+        #endregion
 
         public Player(int id, string username, IPAddress ip, Point position)
         {
@@ -75,6 +77,7 @@ namespace RPGServeur
             this._position = position;
         }
 
+        #region déplacements du joueur
         public void MoveUp()
         {
             _position.Y -= 1;
@@ -94,5 +97,6 @@ namespace RPGServeur
         {
             _position.X -= 1;
         }
+        #endregion
     }
 }
